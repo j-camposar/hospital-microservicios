@@ -6,7 +6,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 public class WebClientConfig {
- // 1. Definimos el Builder primero
+   // 1. Definimos el Builder primero
     @Bean
     public WebClient.Builder webClientBuilder() {
         return WebClient.builder();
@@ -14,7 +14,7 @@ public class WebClientConfig {
 
     @Bean// anotacion para 
     public WebClient webClientPacientes(WebClient.Builder builder) {
-        return builder.baseUrl("http://localhost:8081/api/v1").build(); // Puerto del Micro de Usuarios
+        return builder.baseUrl("http://localhost:8081/api/v1").build(); // Puerto del Micro de Paciente
     }
 
     @Bean

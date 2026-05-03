@@ -13,12 +13,12 @@ public class WebClientConfig {
     }
 
     @Bean// anotacion para 
-    public WebClient webClientUsuarios(WebClient.Builder builder) {
-        return builder.baseUrl("http://localhost:8080/api/v1").build(); // Puerto del Micro de Usuarios
+    public WebClient webClientPaciente(WebClient.Builder builder) {
+        return builder.baseUrl("http://localhost:8081/api/v1").build(); // Puerto del Micro de Paciente
     }
 
     @Bean
     public WebClient webClientMedicos(WebClient.Builder builder) {
-        return builder.baseUrl("http://localhost:8082").build(); // Puerto del Micro de Médicos
+        return builder.baseUrl("http://localhost:8082/api/v1").build(); // Puerto del Micro de Médicos
     }
 }

@@ -37,7 +37,7 @@ public class PacienteService {
         paciente.setRun(pacienteDTO.getRun());
         paciente.setFechaNacimiento(pacienteDTO.getFechaNacimiento());
         paciente.setCorreo(pacienteDTO.getCorreo());
-
+        //buscamos el tipo de usuario por endpoint de tipoUsuario
         TipoUsuarioDTO tipo = webClient.get() 
                 .uri("/tipo-usuario/"+pacienteDTO.getTipoUsuario(), pacienteDTO.getTipoUsuario()) 
                 .retrieve()
@@ -48,7 +48,6 @@ public class PacienteService {
         System.out.println(tipo);
         paciente.setTipoUsuario(tipo.getId());
         Paciente pacienteSave=pacienteRepository.save(paciente);
- 
         return pacienteSave;
     }
 

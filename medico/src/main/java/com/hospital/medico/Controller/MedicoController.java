@@ -8,7 +8,6 @@ import com.hospital.medico.Service.MedicoService;
 
 import java.util.Optional;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +38,7 @@ public class MedicoController {
                                 .body("Médico con ID " + id + " no encontrado.");
         }
         
-        // Retornamos el objeto Medico directamente (sin el Optional)
+        // Retornamos el objeto Medico directamente 
         return ResponseEntity.ok(medico.get());
     }
     

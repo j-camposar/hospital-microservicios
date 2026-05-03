@@ -37,7 +37,6 @@ public class AtencionService {
 
     public Boolean guardarAtencion(AtencionDTO atencionDTO) {
         // 1. Buscamos al Médico (Bloqueante)
-        // Nota: bodyToMono debe recibir la clase directamente, no Optional<Class>
         MedicoDTO medico = webClientMedico.get()
                 .uri("/medico/{id}", atencionDTO.getMedicoId()) 
                 .retrieve()
@@ -85,6 +84,5 @@ public class AtencionService {
     public List<Atencion> obtenerPorRangoFecha(LocalDateTime inicio, LocalDateTime fin) {
         return atencionRepository.findByFechaHoraBetween(inicio, fin);
     }
-
   
 }
