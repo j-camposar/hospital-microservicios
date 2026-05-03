@@ -1,0 +1,4 @@
+CREATE TABLE tipo_usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255)
+);
