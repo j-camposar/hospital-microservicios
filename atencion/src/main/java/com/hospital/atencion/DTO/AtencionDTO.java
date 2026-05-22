@@ -1,5 +1,6 @@
 package com.hospital.atencion.DTO;
 
+
 import java.time.LocalDateTime;
 
 import lombok.Data;

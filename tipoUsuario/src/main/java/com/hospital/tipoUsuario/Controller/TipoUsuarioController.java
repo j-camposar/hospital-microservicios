@@ -2,7 +2,9 @@ package com.hospital.tipoUsuario.Controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.tipoUsuario.Model.TipoUsuario;
 import com.hospital.tipoUsuario.Service.TipoUsuarioService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -22,9 +27,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class TipoUsuarioController {
     @Autowired
     private TipoUsuarioService tipoUsuarioService;
-
+    
+  
     @PostMapping
-    public ResponseEntity<String> crearTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
+    public ResponseEntity<String> crearTipoUsuario( @Valid @RequestBody TipoUsuario tipoUsuario) {
         tipoUsuarioService.Crear(tipoUsuario);
         return ResponseEntity.ok("creado correctamente");
     }

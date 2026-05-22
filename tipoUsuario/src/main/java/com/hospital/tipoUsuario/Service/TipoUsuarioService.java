@@ -2,6 +2,8 @@ package com.hospital.tipoUsuario.Service;
 
 import java.util.List;
 import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,12 @@ import jakarta.transaction.Transactional;
 public class TipoUsuarioService {
     @Autowired
     private TipoUsuarioRepository tipoUsuarioRepository;
+    
+    private static final Logger log = LoggerFactory.getLogger(TipoUsuarioService.class);
 
     public void Crear(TipoUsuario tipoUsuario){
         tipoUsuarioRepository.save(tipoUsuario);
+        log.info("Tipo de usuario credo correctamente", tipoUsuario);
     }
 
     public List<TipoUsuario> buscarTodos(){

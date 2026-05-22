@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class MedicoDTO {
-    private Integer id ;
+    private Integer id;
     private String nombre;
     private String especialidades;
     private char jefeTurno;

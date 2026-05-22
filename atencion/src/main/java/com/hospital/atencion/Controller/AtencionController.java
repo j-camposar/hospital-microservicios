@@ -1,10 +1,9 @@
 package com.hospital.atencion.Controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,14 +23,8 @@ public class AtencionController {
     private AtencionService atencionService;
 
     @PostMapping("/crear-atencion")
-    public ResponseEntity<String> crearAtencion (@RequestBody AtencionDTO  atencion) {
-        Boolean save = atencionService.guardarAtencion(atencion);
-        if(save!=true){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                             .body("Error: Paciente o médico no existen en sus respectivos microservicios.");
-        }
-        return ResponseEntity.ok("creado correctamente");
-
+    public Atencion crearAtencion (@RequestBody AtencionDTO  atencion) {
+        return atencionService.guardarAtencion(atencion);
     }
     @GetMapping("/buscar-paciente/{pacienteId}")
     public List<Atencion> buscarPorPaciente (@PathVariable Integer pacienteId) {
