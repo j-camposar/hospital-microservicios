@@ -17,9 +17,11 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.util.AntPathMatcher;
 
 public class JwtAuthorizationFilter  extends OncePerRequestFilter {
     private final String secretKey = "mi_clave_secreta";
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
         HttpServletResponse response,
@@ -50,5 +52,5 @@ public class JwtAuthorizationFilter  extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
-
+    
 }

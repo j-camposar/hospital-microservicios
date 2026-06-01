@@ -10,6 +10,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.hospital.tipoUsuario.Security.JwtAuthorizationFilter;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -22,7 +25,9 @@ public class SecurityConfig {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
             // Endpoint libre para pedir el token sin credenciales
-            .requestMatchers("/auth/login").permitAll()
+          .requestMatchers(
+                "/auth/login"              // Tu endpoint libre de login
+            ).permitAll()
             .anyRequest().authenticated()
         )
         .addFilterBefore(
@@ -30,4 +35,5 @@ public class SecurityConfig {
             UsernamePasswordAuthenticationFilter.class)
         .build();
     }
+   
 }

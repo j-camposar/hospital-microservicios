@@ -21,9 +21,10 @@ public class TipoUsuarioService {
     
     private static final Logger log = LoggerFactory.getLogger(TipoUsuarioService.class);
 
-    public void Crear(TipoUsuario tipoUsuario){
-        tipoUsuarioRepository.save(tipoUsuario);
+    public TipoUsuario Crear(TipoUsuario tipoUsuario){
+        TipoUsuario tipoUsuarioNuevo= tipoUsuarioRepository.save(tipoUsuario);
         log.info("Tipo de usuario credo correctamente", tipoUsuario);
+        return tipoUsuarioNuevo;
     }
 
     public List<TipoUsuario> buscarTodos(){

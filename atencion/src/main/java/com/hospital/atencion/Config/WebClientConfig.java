@@ -10,11 +10,7 @@ public class WebClientConfig {
     public WebClient.Builder webClientBuilder(){
         return WebClient.builder();
     }
-    // microservicio de tipoUsuario
-    // @Bean
-    // public WebClient webClientUsuario(WebClient.Builder builder){
-    //     return builder.baseUrl("localhost:8080/api/v1").build();
-    // }
+
     @Bean
     public WebClient webClientPaciente(WebClient.Builder builder){
         return builder.baseUrl("localhost:8081/api/v1").build();
