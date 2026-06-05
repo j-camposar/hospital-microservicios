@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @RestController
-@RequestMapping("/api/v1/tipo-usuario")
+@RequestMapping("/api/v2/tipo-usuario")
 public class TipoUsuarioController {
     @Autowired
     private TipoUsuarioService tipoUsuarioService;
